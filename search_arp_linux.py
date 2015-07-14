@@ -5,7 +5,6 @@ if len(sys.argv) == 1:
         print ( "no args supplied")
         sys.exit(1)
 #Inserire il nome del file da cercare
-#filename = 'linux-arp-10.0.18.3.txt'
 
 filename = sys.argv[1]
 # Inserire il nome del file di destinazione
