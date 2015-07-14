@@ -1,0 +1,46 @@
+import re
+import sys
+
+if len(sys.argv) == 1:
+        print ( "no args supplied")
+        sys.exit(1)
+        
+# Inserire il nome del file da cercare
+filename = sys.argv[1]
+#filename = 'arp_3750.txt'
+# Inserire il nome del file di destinazione
+filename2 = 'arp_3750.txt'
+#Regex per trovare gli spazi e i punti
+spaces = r'\b[^\w\.\-]+\b'
+pattern2 = r'(\-)'
+#Regex per trovare ID, IPv4 e MAC-Address
+pattern = r'(\b\w+\b)(\b[^\w\.]+?\b)(\b([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\b)(\b[^\w0-9-]*)([\d\-]*)(\b[^\w\d\.]+\b)([\da-f]{4})\.([\da-f]{4})\.([\da-f]{4})(\b[^\w\.]+?\b)(\b\w+\b)(\b[^\w\.]+?\b)(\b\w+\b)'
+
+#Array per scrivere il file
+new_file = []
+
+#Apre il file di testo e crea una variabile per ogni linea
+with open(filename, 'r') as f:
+    lines = f.readlines()
+
+#Loop che itera ogni linea
+for line in lines:
+    #Variabile per la contenere ogni linea di: ID, Ipv4 e MAC-Address
+    match_line = re.search((pattern),line)
+    
+    #Se trova un match.
+    if match_line :
+        #Crea una variabile new_line con il match e aggiunge un newline alla fine
+        new_line = match_line.group()
+        #Crea una variabile per sostituire gli spazi con |
+        new_line = re.sub(pattern2, '0', new_line)
+        
+        new_line = re.sub(spaces, '|', new_line)
+        #Appende la nuova line nell'array new_file
+        print new_line
+        #new_file.append(new_line)
+
+#Scrive un nuovo file con il file name inserito all'inizio dello script
+#with open(filename2, 'w') as f:
+    #f.seek(0)
+    #f.writelines(new_file)
