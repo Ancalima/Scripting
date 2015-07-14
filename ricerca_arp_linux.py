@@ -136,7 +136,7 @@ for line in new_file4:
     
     new_line = re.sub(pipe, '', new_line)
     #Appende la nuova line nell'array new_file
-    print(new_line)
+    print new_line
     #new_file.append(new_line)
 
 #Scrive un nuovo file con il file name inserito all'inizio dello script
