@@ -1,13 +1,13 @@
 import re
 import sys
 
-#if len(sys.argv) == 1:
-        #print ( "no args supplied")
-        #sys.exit(1)
+if len(sys.argv) == 1:
+        print ( "no args supplied")
+        sys.exit(1)
 #Inserire il nome del file da cercare
 #filename = 'linux-arp-10.0.18.3.txt'
 
-filename = 'linux-arp-10.0.18.3.txt'#sys.argv[1]
+filename = sys.argv[1]
 # Inserire il nome del file di destinazione
 filename2 = 'arp_linux.txt'
 #filename3 = 'correzione.txt'
