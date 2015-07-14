@@ -7,7 +7,6 @@ if len(sys.argv) == 1:
         sys.exit(1)
 # Inserire il nome del file da cercare
 filename = sys.argv[1]
-#filename = 'arp_admin_10.0.18.1.txt'
 # Inserire il nome del file di destinazione
 filename2 = 'arp_asa.txt'
 #Regex per trovare gli spazi e i punti
