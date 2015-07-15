@@ -7,6 +7,12 @@ if len(sys.argv) == 1:
         sys.exit(1)
 # Inserire il nome del file da cercare
 filename = sys.argv[1]
+
+device = str(filename)
+pattern_device = r'([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})'
+match_pattern = re.search(pattern_device, device)
+device_name = '|' + match_pattern.group(0)
+
 # Inserire il nome del file di destinazione
 filename2 = 'arp_asa.txt'
 #Regex per trovare gli spazi e i punti
@@ -33,7 +39,7 @@ for line in lines:
         #Crea una variabile per sostituire gli spazi con |
         new_line = re.sub(spaces, '|', new_line)
         #Appende la nuova line nell'array new_file
-        print new_line
+        print new_line + device_name
         #new_file.append(new_line)
 
 #Scrive un nuovo file con il file name inserito all'inizio dello script
