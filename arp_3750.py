@@ -11,7 +11,7 @@ filename = sys.argv[1]
 device = str(filename)
 pattern_device = r'([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})'
 match_pattern = re.search(pattern_device, device)
-device_name = '|' + match_pattern.group(0)
+device_name = match_pattern.group(0)
 # Inserire il nome del file di destinazione
 filename2 = 'arp_3750.txt'
 #Regex per trovare gli spazi e i punti
