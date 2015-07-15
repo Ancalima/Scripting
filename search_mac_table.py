@@ -3,12 +3,17 @@ import csv
 import sys
 # Inserire il nome del file da cercare
 
-#if len(sys.argv) == 1:
-        #print ( "no args supplied \n")
-        #sys.exit(1)
+if len(sys.argv) == 1:
+        print ( "no args supplied \n")
+        sys.exit(1)
         
-filename = 'cisco-mac-10.0.18.10.txt'
-#filename = sys.argv[1]
+#filename = 'cisco-mac-10.0.18.10.txt'
+filename = sys.argv[1]
+
+device = str(filename)
+pattern_device = r'([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})'
+match_pattern = re.search(pattern_device, device)
+device_name =  match_pattern.group(0)
 
 # Inserire il nome del file di destinazione
 filename2 = 'mac_table.txt'
@@ -38,7 +43,7 @@ for line in lines:
         #Modifica la variabile per sostituire gli spazi con |
         new_line = re.sub(spaces, '|', new_line)
         #Appende la nuova line nell'array new_file
-        print(new_line)
+        print new_line + device_name
         #new_file.append(new_line)
     #if match_port:
         #Crea una variabile new_line con il match e aggiunge un newline alla fine
