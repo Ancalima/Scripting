@@ -41,7 +41,7 @@ for line in lines:
         
         new_line = re.sub(spaces, '|', new_line)
         #Appende la nuova line nell'array new_file
-        print new_line + device_name
+        print new_line + '|' + device_name
         #new_file.append(new_line)
 
 #Scrive un nuovo file con il file name inserito all'inizio dello script
