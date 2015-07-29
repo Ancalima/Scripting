@@ -43,7 +43,7 @@ for line in lines:
         #Modifica la variabile per sostituire gli spazi con |
         new_line = re.sub(spaces, '|', new_line)
         #Appende la nuova line nell'array new_file
-        print new_line + device_name
+        print new_line + '|' + device_name
         #new_file.append(new_line)
     #if match_port:
         #Crea una variabile new_line con il match e aggiunge un newline alla fine
